@@ -1,0 +1,43 @@
+.nasabah-title h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.btn-search-nasabah {
+  background: rgb(5, 13, 53) !important;
+  border: 0 !important;
+  display: inline !important;
+  margin: 0 0 0 10px !important;
+}
+
+.search-nasabah-form {
+  display: flex !important;
+  align-items: center;
+  flex-direction: row;
+}
+
+#nasabah-body {
+  margin: 10px 20px;
+}
+
+.btn-edit {
+  background: rgb(208, 208, 2) !important;
+  border: 0 !important;
+  padding: 5px 10px !important;
+  color: black !important;
+}
+
+.btn-edit:hover {
+  background: rgb(222, 222, 61) !important;
+}
+
+.btn-delete {
+  background: rgb(171, 12, 12) !important;
+  border: 0 !important;
+  padding: 5px 10px !important;
+}
+
+.btn-delete:hover {
+  background: rgb(197, 22, 22) !important;
+}

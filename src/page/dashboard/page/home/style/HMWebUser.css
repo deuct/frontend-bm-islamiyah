@@ -1,0 +1,9 @@
+#welcome-title h1 {
+  font-size: 1.8rem;
+  color: #222;
+}
+
+#welcome-title p {
+  font-size: 1.4rem;
+  color: rgb(69, 69, 69);
+}

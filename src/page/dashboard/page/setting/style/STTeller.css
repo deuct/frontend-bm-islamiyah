@@ -1,0 +1,11 @@
+p.tellermodal-intro-p {
+  color: rgb(179, 179, 179) !important;
+  display: block;
+  font-size: 1rem !important;
+}
+
+h1.tellermodal-intro-h1 {
+  display: block;
+  color: rgb(40, 40, 40) !important;
+  font-size: 1.8rem !important;
+}

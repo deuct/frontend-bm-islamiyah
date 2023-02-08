@@ -1,0 +1,15 @@
+#footer {
+  position: absolute;
+  bottom: 0;
+  background: rgb(5, 13, 53);
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  z-index: 100;
+}
+
+#footer p {
+  margin: 0;
+  padding: 5px;
+  font-size: 0.8rem;
+}

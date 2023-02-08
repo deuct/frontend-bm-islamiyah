@@ -1,0 +1,51 @@
+#title-confirmation {
+  margin-top: 20px;
+}
+
+#title-confirmation h3 {
+  color: #222;
+  margin-bottom: 5px;
+}
+
+#title-confirmation p {
+  margin: 0 !important;
+  padding: 0;
+  color: rgb(89, 89, 89);
+}
+
+#body-confirmation {
+  width: 250px;
+  margin: auto;
+  margin-top: 15px;
+  color: #222;
+  border: 1px dashed rgb(148, 148, 255);
+}
+
+#body-confirmation tr td {
+  padding: 5px;
+}
+
+#tabungan-header {
+  background: rgb(9, 69, 181);
+  color: white;
+  margin: auto;
+}
+
+#tabungan-header tr td {
+  border: 1px solid white;
+  padding: 5px;
+}
+
+#tabungan-contents {
+  margin: auto;
+  font-size: 0.8rem;
+}
+
+.btn-printbukutabungan {
+  padding: 2px 15px !important;
+  background: rgb(28, 68, 244) !important;
+}
+
+.btn-printbukutabungan:hover {
+  background: rgb(82, 112, 246) !important;
+}

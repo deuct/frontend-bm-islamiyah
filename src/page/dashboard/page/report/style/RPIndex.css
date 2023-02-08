@@ -1,0 +1,13 @@
+.strip {
+  margin: 15px 10px 0 10px !important;
+  padding: 0 !important;
+  background: #222;
+  height: 1px;
+  width: 15px;
+}
+
+.report-title h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}

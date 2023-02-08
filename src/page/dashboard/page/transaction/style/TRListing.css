@@ -1,0 +1,34 @@
+.search-group {
+  display: flex;
+}
+
+#transaksi-body {
+  margin: 10px 20px;
+}
+
+.transaksi-title h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.search-transaksi-form {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 40%;
+  margin-bottom: 75px;
+}
+
+.btn-search-transaction {
+  background: rgb(21, 42, 143) !important;
+  border: none !important;
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  margin-bottom: 2px;
+}
+
+.btn-search-transaction:hover {
+  background: rgb(5, 13, 53) !important ;
+}

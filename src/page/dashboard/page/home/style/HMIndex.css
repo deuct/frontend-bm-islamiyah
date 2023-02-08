@@ -1,0 +1,50 @@
+.home-title h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.card-home {
+  border-radius: 4px;
+  border: 1px solid #222;
+  padding: 10px !important;
+  margin: 5px;
+  width: 90%;
+}
+
+.ch-title {
+  width: 100%;
+  border-bottom: 1px solid #222;
+  text-align: center;
+  position: relative;
+}
+
+.ch-title p {
+  margin: 0 !important;
+  padding: 2px !important;
+  font-size: 1.2rem;
+}
+
+.ch-body {
+  margin-top: 15px;
+}
+
+.ch-btn-search {
+  float: right;
+  padding: 5px 15px !important;
+  background: rgb(26, 26, 147) !important;
+  border: 0 !important;
+}
+
+.ch-btn-search:hover {
+  background: rgb(40, 40, 182) !important;
+}
+
+.ch-body-res {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.ch-br-val {
+  font-weight: 600;
+}

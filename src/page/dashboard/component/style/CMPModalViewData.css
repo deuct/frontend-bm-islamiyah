@@ -1,0 +1,18 @@
+.custom-modal {
+  max-width: 1000px !important;
+}
+
+.custom-modal .header-viewdata {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.custom-modal .body-viewdata {
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.label-viewdata {
+  text-align: right;
+}

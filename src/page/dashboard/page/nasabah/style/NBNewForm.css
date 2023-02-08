@@ -1,0 +1,21 @@
+.nasabah-title h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.nasabah-form-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nasabah-form-field .form-control {
+  width: 80% !important;
+  margin-left: 10px;
+}
+
+.btn-nsb {
+  background: rgb(5, 13, 53) !important;
+  border: 0 !important;
+}

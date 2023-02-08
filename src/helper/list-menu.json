@@ -1,0 +1,143 @@
+{
+  "admin": [
+    {
+      "root_name": "Nasabah",
+      "menu_list": [
+        { "menu_name": "Add Nasabah", "link": "/dashboard/nasabah/add" },
+        { "menu_name": "List Nasabah", "link": "/dashboard/nasabah/listing" },
+        { "menu_name": "Saldo Nasabah", "link": "/dashboard/nasabah/saldo" },
+        {
+          "menu_name": "Add Webuser",
+          "link": "/dashboard/nasabah/webuser/add"
+        },
+        {
+          "menu_name": "List Webuser",
+          "link": "/dashboard/nasabah/webuser/listing"
+        }
+      ]
+    },
+    {
+      "root_name": "Transaksi",
+      "menu_list": [
+        {
+          "menu_name": "Histories Transaksi",
+          "link": "/dashboard/transaction/histories"
+        },
+        {
+          "menu_name": "Add Transaksi",
+          "sub_menu": [
+            {
+              "menu_name": "Transaksi Penarikan",
+              "link": "/dashboard/transaction/add-penarikan"
+            },
+            {
+              "menu_name": "Transaksi Setoran",
+              "link": "/dashboard/transaction/add-setoran"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root_name": "Report",
+      "menu_list": [
+        {
+          "menu_name": "Rekap End Day",
+          "link": "/dashboard/report/rekap-end-of-day"
+        },
+        {
+          "menu_name": "Journal",
+          "link": "/dashboard/report/journal"
+        }
+      ]
+    },
+    {
+      "root_name": "Print Out",
+      "menu_list": [
+        {
+          "menu_name": "Buku Tabungan",
+          "link": "/dashboard/print/buku-tabungan"
+        }
+      ]
+    }
+  ],
+  "nasabah": [
+    {
+      "root_name": "Nasabah",
+      "menu_list": [
+        { "menu_name": "My Balance", "link": "/dashboard/nasabah/mybalance" }
+      ]
+    },
+    {
+      "root_name": "Transaksi",
+      "menu_list": [
+        {
+          "menu_name": "Histories Transaksi",
+          "link": "/dashboard/transaction/histories"
+        }
+      ]
+    }
+  ],
+  "teller": [
+    {
+      "root_name": "Nasabah",
+      "menu_list": [
+        { "menu_name": "Add Nasabah", "link": "/dashboard/nasabah/add" },
+        { "menu_name": "List Nasabah", "link": "/dashboard/nasabah/listing" },
+        { "menu_name": "Saldo Nasabah", "link": "/dashboard/nasabah/saldo" },
+        {
+          "menu_name": "Add Webuser",
+          "link": "/dashboard/nasabah/webuser/add"
+        },
+        {
+          "menu_name": "List Webuser",
+          "link": "/dashboard/nasabah/webuser/listing"
+        }
+      ]
+    },
+    {
+      "root_name": "Transaksi",
+      "menu_list": [
+        {
+          "menu_name": "Histories Transaksi",
+          "link": "/dashboard/transaction/histories"
+        },
+        {
+          "menu_name": "Add Transaksi",
+          "sub_menu": [
+            {
+              "menu_name": "Transaksi Penarikan",
+              "link": "/dashboard/transaction/add-penarikan"
+            },
+            {
+              "menu_name": "Transaksi Setoran",
+              "link": "/dashboard/transaction/add-setoran"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "root_name": "Report",
+      "menu_list": [
+        {
+          "menu_name": "Rekap End Day",
+          "link": "/dashboard/report/rekap-end-of-day"
+        },
+        {
+          "menu_name": "Journal",
+          "link": "/dashboard/report/journal"
+        }
+      ]
+    },
+    {
+      "root_name": "Print Out",
+      "menu_list": [
+        {
+          "menu_name": "Buku Tabungan",
+          "link": "/dashboard/print/buku-tabungan"
+        }
+      ]
+    }
+  ]
+}

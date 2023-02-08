@@ -1,0 +1,76 @@
+{
+  "admin": [
+    { "menu_name": "Add Nasabah", "link": "/dashboard/nasabah/add" },
+    { "menu_name": "List Nasabah", "link": "/dashboard/nasabah/listing" },
+    { "menu_name": "Saldo Nasabah", "link": "/dashboard/nasabah/saldo" },
+    { "menu_name": "Add Mobile User", "link": "/dashboard/nasabah/mobile/add" },
+    {
+      "menu_name": "List Mobile User",
+      "link": "/dashboard/nasabah/mobile/listing"
+    },
+    {
+      "menu_name": "Histories Transaksi",
+      "link": "/dashboard/transaction/histories"
+    },
+    {
+      "menu_name": "Transaksi Penarikan",
+      "link": "/dashboard/transaction/add-penarikan"
+    },
+    {
+      "menu_name": "Transaksi Setoran",
+      "link": "/dashboard/transaction/add-setoran"
+    },
+    {
+      "menu_name": "Rekap End of Day",
+      "link": "/dashboard/report/rekap-end-of-day"
+    },
+    {
+      "menu_name": "Journal",
+      "link": "/dashboard/report/journal"
+    },
+    {
+      "menu_name": "Print Buku Tabungan",
+      "link": "/dashboard/print/buku-tabungan"
+    }
+  ],
+  "nasabah": [
+    { "menu_name": "My Rekening", "link": "/dashboard/nasabah/listing" },
+    {
+      "menu_name": "Histories Transaksi",
+      "link": "/dashboard/transaction/histories"
+    }
+  ],
+  "teller": [
+    { "menu_name": "Add Nasabah", "link": "/dashboard/nasabah/add" },
+    { "menu_name": "List Nasabah", "link": "/dashboard/nasabah/listing" },
+    { "menu_name": "Saldo Nasabah", "link": "/dashboard/nasabah/saldo" },
+    {
+      "menu_name": "List Webuser",
+      "link": "/dashboard/nasabah/webuser/listing"
+    },
+    {
+      "menu_name": "Histories Transaksi",
+      "link": "/dashboard/transaction/histories"
+    },
+    {
+      "menu_name": "Transaksi Penarikan",
+      "link": "/dashboard/transaction/add-penarikan"
+    },
+    {
+      "menu_name": "Transaksi Setoran",
+      "link": "/dashboard/transaction/add-setoran"
+    },
+    {
+      "menu_name": "Rekap End Day",
+      "link": "/dashboard/report/rekap-end-of-day"
+    },
+    {
+      "menu_name": "Journal",
+      "link": "/dashboard/report/journal"
+    },
+    {
+      "menu_name": "Buku Tabungan",
+      "link": "/dashboard/print/buku-tabungan"
+    }
+  ]
+}

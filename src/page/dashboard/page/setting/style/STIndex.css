@@ -1,0 +1,100 @@
+#setting-page {
+  margin-top: 25px;
+}
+
+#setting-page h1 {
+  font-size: 1.8rem;
+}
+
+#setting-page h1,
+#setting-page p {
+  text-align: center;
+}
+
+.nav-tabs .nav-link.active {
+  background: rgb(12, 12, 110) !important;
+  color: white !important;
+}
+
+.nav-tabs .nav-link {
+  color: rgb(41, 41, 218) !important;
+  font-size: 1rem !important;
+  background: none !important;
+}
+
+.nav-tabs .nav-link:hover {
+  background: rgb(12, 12, 129) !important;
+  color: white !important;
+}
+
+#setting-page-body {
+  padding-bottom: 100px;
+}
+
+.setting-title {
+  text-align: center;
+  justify-content: center;
+}
+
+.setting-title h1 {
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.form-st {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.form-st .form-label {
+  width: 300px;
+}
+
+.btn-teller {
+  margin: 5px;
+  padding: 5px 10px !important;
+}
+
+.form-search-teller {
+  border-radius: 6px 0 0 6px !important;
+}
+
+.bt-search-teller {
+  border-radius: 0 6px 6px 0 !important;
+}
+
+.new-teller-btn {
+  text-align: end;
+}
+
+.btn-save-setting {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#logo-setting {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#logo-setting h3 {
+  font-size: 1rem;
+  width: 200px;
+}
+
+#logo-setting .logo-box {
+  background: rgb(238, 238, 238);
+  border: 1px dashed rgb(132, 245, 245);
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+}
+
+#logo-setting .logo-setting-img {
+  width: 120px;
+  height: 120px;
+}
