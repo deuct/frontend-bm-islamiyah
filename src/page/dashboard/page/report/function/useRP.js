@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 export const useRPForm = (reportType) => {
+  const baseURL = process.env.REACT_APP_BASE_URL;
+
   const valueForm = {
     dateStart: "",
     dateEnd: "",
@@ -10,7 +12,7 @@ export const useRPForm = (reportType) => {
 
   const previewForm = () => {
     let reportWindow = window.open(
-      `http://localhost:3000/report/view/?dateStart=${valueForm.dateStart}&dateEnd=${valueForm.dateEnd}&reportType=${valueForm.reportType}&showType=${valueForm.showType}`,
+      `${baseURL}/report/view/?dateStart=${valueForm.dateStart}&dateEnd=${valueForm.dateEnd}&reportType=${valueForm.reportType}&showType=${valueForm.showType}`,
       "",
       "MsgWindow"
     );

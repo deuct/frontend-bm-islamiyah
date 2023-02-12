@@ -19,6 +19,8 @@ export const useValueForm = (axiosJWT, configAxios) => {
 };
 
 export const useBukuTabungan = (dataNasabah, startDate, endDate, noBaris) => {
+  const baseURL = process.env.REACT_APP_BASE_URL;
+
   const printBukuTabungan = () => {
     console.log(startDate);
 
@@ -36,7 +38,7 @@ export const useBukuTabungan = (dataNasabah, startDate, endDate, noBaris) => {
     console.log(valueForm);
 
     let reportWindow = window.open(
-      `http://localhost:3000/report/view/buku-tabungan/?startDate=${valueForm.startDate}&endDate=${valueForm.endDate}&reportType=${valueForm.reportType}&norek=${valueForm.norek}&namaNasabah=${valueForm.namaNasabah}&nomorBaris=${valueForm.nomorBaris}&kelas=${valueForm.kelasNasabah}&jurusan=${valueForm.jurusanNasabah}`,
+      `${baseURL}/report/view/buku-tabungan/?startDate=${valueForm.startDate}&endDate=${valueForm.endDate}&reportType=${valueForm.reportType}&norek=${valueForm.norek}&namaNasabah=${valueForm.namaNasabah}&nomorBaris=${valueForm.nomorBaris}&kelas=${valueForm.kelasNasabah}&jurusan=${valueForm.jurusanNasabah}`,
       "",
       "MsgWindow"
     );
