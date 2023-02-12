@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useAxiosJWT } from "../../../../../function/AxiosJWT";
 
 export const usePFIndex = (configAxios, name) => {
+  const baseURL = process.env.REACT_APP_BASE_URL;
   const [photoNew, setPhotoNew] = useState([]);
   const [photoPath, setPhotoPath] = useState([]);
   const [profileName, setProfileName] = useState("");
@@ -70,11 +71,7 @@ export const usePFIndex = (configAxios, name) => {
   };
 
   const changePassword = () => {
-    window.open(
-      `http://localhost:3000/dashboard/setting/user/changepwd`,
-      "",
-      "MsgWindow"
-    );
+    window.open(`${baseURL}/dashboard/setting/user/changepwd`, "", "MsgWindow");
   };
 
   return {
