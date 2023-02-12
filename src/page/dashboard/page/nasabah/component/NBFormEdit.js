@@ -17,6 +17,8 @@ function NBFormEdit(props) {
   const { jurusanData } = useAllJurusan(axiosJWT, configAxios);
   const { jkData } = useGetJK(axiosJWT, configAxios);
 
+  console.log(valueForm);
+
   return (
     <>
       <FormModal isSuccess={isSuccess} />

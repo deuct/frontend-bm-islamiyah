@@ -6,6 +6,7 @@ export const usePFIndex = (configAxios, name) => {
   const [photoPath, setPhotoPath] = useState([]);
   const [profileName, setProfileName] = useState("");
   const [username, setUsername] = useState([]);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const { axiosJWT } = useAxiosJWT();
 
@@ -59,6 +60,10 @@ export const usePFIndex = (configAxios, name) => {
         },
         withCredentials: true,
       });
+
+      if (response) {
+        setIsSuccess(true);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -82,5 +87,6 @@ export const usePFIndex = (configAxios, name) => {
     handleImageChange,
     changePassword,
     submitProfile,
+    isSuccess,
   };
 };

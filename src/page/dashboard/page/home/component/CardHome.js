@@ -13,6 +13,9 @@ function CardHome(props) {
     valueForm
   );
 
+  console.log(resData);
+  console.log(resultCount);
+
   return (
     <>
       <Col className="card-home" xs={3} md={3} lg={3}>
@@ -47,9 +50,13 @@ function CardHome(props) {
             <Col>
               <p className="ch-body-res">
                 Result:{" "}
-                <span className="ch-br-val">
-                  {resultCount ? resultCount[resData] : "0"}
-                </span>{" "}
+                {resData ? (
+                  <span className="ch-br-val">
+                    {resultCount ? resultCount[resData] : ""}
+                  </span>
+                ) : (
+                  "..."
+                )}{" "}
                 {props.cardName} Tercatat
               </p>
             </Col>

@@ -5,6 +5,7 @@ import {
   BsPersonBadgeFill,
   BsCalendarWeek,
   BsFillBookmarkStarFill,
+  BsStack,
 } from "react-icons/bs";
 import STCard from "./component/STCard";
 import CMPBreadCrumb from "../../component/CMPBreadCrumb";
@@ -21,6 +22,7 @@ function STMenu() {
 
   const stListMasterData = [
     { icon: <BsPersonBadgeFill />, title: "Teller Data", code: "TD" },
+    { icon: <BsStack />, title: "Jurusan", code: "JR" },
     { icon: <BsCalendarWeek />, title: "Date of Home Summary", code: "HDS" },
   ];
 

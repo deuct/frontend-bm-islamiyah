@@ -9,6 +9,8 @@ function TRFormAdd(props) {
   const aksi = props.aksi;
 
   const {
+    formatRupiah,
+    rupiah,
     idTransaksi,
     norek,
     setNorek,
@@ -16,6 +18,8 @@ function TRFormAdd(props) {
     jumlahUang,
     setJumlahUang,
     tglTransaksi,
+    jmlUang,
+    setJmlUang,
   } = useValueForm(axiosJWT, configAxios);
 
   const {
@@ -172,7 +176,7 @@ function TRFormAdd(props) {
                   </Col>
                 </Row>
               </Form.Group>
-              <Form.Group className="mt-2" controlId="formBasicEmail">
+              <Form.Group className="mt-2" controlId="rupiah">
                 <Row>
                   <Col xs={2} md={2} lg={2}>
                     <Form.Label>Jumlah Uang</Form.Label>
@@ -180,8 +184,12 @@ function TRFormAdd(props) {
                   <Col xs={9} md={9} lg={9}>
                     <Form.Control
                       type="text"
-                      onBlur={(e) => setJumlahUang(e.target.value)}
-                      placeholder=""
+                      onBlur={(e) => {
+                        setJumlahUang(e.target.value);
+                      }}
+                      onKeyUp={(e) => {
+                        rupiah.value = formatRupiah(e.target.value, "Rp. ");
+                      }}
                     />
                   </Col>
                 </Row>

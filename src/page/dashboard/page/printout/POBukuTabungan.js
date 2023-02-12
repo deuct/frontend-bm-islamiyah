@@ -99,6 +99,7 @@ function POBukuTabungan(props) {
                             type="text"
                             onChange={(e) => setNoBaris(e.target.value)}
                             placeholder=""
+                            readOnly
                           />
                         </Col>
                       </Row>
@@ -148,6 +149,36 @@ function POBukuTabungan(props) {
                             defaultValue={
                               dataNasabah ? dataNasabah.nama_jurusan : "..."
                             }
+                            placeholder=""
+                            readOnly
+                          />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                      <Row className="justify-content-center">
+                        <Col xs={3} md={3} lg={3}>
+                          <Form.Label>Last Print Date</Form.Label>
+                        </Col>
+                        <Col xs={6} md={6} lg={6}>
+                          <Form.Control
+                            type="text"
+                            defaultValue={""}
+                            placeholder=""
+                            readOnly
+                          />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                      <Row className="justify-content-center">
+                        <Col xs={3} md={3} lg={3}>
+                          <Form.Label>Transaksi Belum Dicetak</Form.Label>
+                        </Col>
+                        <Col xs={6} md={6} lg={6}>
+                          <Form.Control
+                            type="text"
+                            defaultValue={""}
                             placeholder=""
                             readOnly
                           />

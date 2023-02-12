@@ -44,5 +44,7 @@ export const useGetNasabahById = (axiosJWT, configAxios, noRekening) => {
     }
   };
 
+  console.log(dataNasabah);
+
   return { dataNasabah };
 };

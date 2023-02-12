@@ -11,6 +11,7 @@ import { useAuthContext } from "../../../../helper/context/useAuthContext";
 
 import { useNavigate } from "react-router-dom";
 import NFPageNotFound from "../notfound/NFPageNotFound";
+import STJurusan from "./page/masterdata/STJurusan";
 
 function STPage(props) {
   const axiosJWT = props.axiosJWT;
@@ -39,6 +40,10 @@ function STPage(props) {
       setBreadCrumbData(["Setting", "Menu", "Master Data", "Teller Data"]);
       setTitleSetting("Teller Data");
       setSubTitle("Manage your teller data");
+    } else if (urlCode === "JR" && userRole === "admin") {
+      setBreadCrumbData(["Setting", "Menu", "Master Data", "Jurusan Data"]);
+      setTitleSetting("Jurusan Data");
+      setSubTitle("Manage your jurusan data");
     } else if (urlCode === "HDS" && userRole === "admin") {
       setBreadCrumbData([
         "Setting",
@@ -76,6 +81,8 @@ function STPage(props) {
         <STChangePassword configAxios={configAxios} axiosJWT={axiosJWT} />
       ) : urlCode === "TD" && userRole === "admin" ? (
         <STTeller configAxios={configAxios} axiosJWT={axiosJWT} />
+      ) : urlCode === "JR" && userRole === "admin" ? (
+        <STJurusan configAxios={configAxios} axiosJWT={axiosJWT} />
       ) : urlCode === "HDS" && userRole === "admin" ? (
         <STHomeDate configAxios={configAxios} axiosJWT={axiosJWT} />
       ) : urlCode === "LG" && userRole === "admin" ? (

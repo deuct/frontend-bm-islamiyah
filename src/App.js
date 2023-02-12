@@ -8,8 +8,16 @@ import axiosInstance from "./function/AxiosInstance";
 import ViewReport from "./page/view_report/ViewReport";
 import ViewBukuTabungan from "./page/view_report/ViewBukuTabungan";
 import LGFirst from "./page/login/LGFirst";
+import { useAuthContext } from "./helper/context/useAuthContext";
+import PrivateAdmin from "./private_routes/PrivateAdmin";
+import PrivateTeller from "./private_routes/PrivateTeller";
+import NFPageNotFound from "./page/dashboard/page/notfound/NFPageNotFound";
 
 function App() {
+  const { userRole } = useAuthContext();
+
+  console.log("test user role : ", userRole);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -17,24 +25,40 @@ function App() {
           path="/dashboard/*"
           element={<DashboardRoutes configAxios={configAxios} />}
         />
+        {/* {userRole ? ( */}
         <Route
-          path="/report/view/*"
           element={
-            <ViewReport
-              configAxios={configAxios}
-              axiosInstance={axiosInstance}
-            />
+            userRole === "admin" ? (
+              <PrivateAdmin />
+            ) : userRole === "teller" ? (
+              <PrivateTeller />
+            ) : (
+              <NFPageNotFound />
+            )
           }
-        />
-        <Route
-          path="/report/view/buku-tabungan/*"
-          element={
-            <ViewBukuTabungan
-              configAxios={configAxios}
-              axiosInstance={axiosInstance}
-            />
-          }
-        />
+        >
+          <Route
+            path="/report/view/*"
+            element={
+              <ViewReport
+                configAxios={configAxios}
+                axiosInstance={axiosInstance}
+              />
+            }
+          />
+          <Route
+            path="/report/view/buku-tabungan/*"
+            element={
+              <ViewBukuTabungan
+                configAxios={configAxios}
+                axiosInstance={axiosInstance}
+              />
+            }
+          />
+        </Route>
+        {/* ) : (
+          ""
+        )} */}
         <Route
           path="/login"
           element={

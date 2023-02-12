@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button, Form, Row, Col } from "react-bootstrap";
 import FormModal from "../../../../../component/FormModal";
 import { useSTTeller, useSTTellerAdd } from "../function/useSTTeller";
