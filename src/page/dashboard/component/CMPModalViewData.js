@@ -55,10 +55,12 @@ function CMPModalViewData(props) {
   }, [arrViewData]);
 
   const convertTerbilang = () => {
-    let hasilTerbilang = Pembilang(arrViewData[5]);
+    console.log(arrViewData);
+
+    let hasilTerbilang = Pembilang(arrViewData[6]);
     hasilTerbilang = hasilTerbilang.replace(/\s\s+/g, " ").trim();
 
-    if (arrViewData.length === 6) {
+    if (arrViewData.length === 7) {
       setTerbilang(hasilTerbilang);
     }
   };

@@ -4,6 +4,7 @@ import { useCurrentTeller } from "../../../../../function/dash/useTeller";
 import { useGetIdTransaksi } from "../../../../../function/dash/useTransaksi";
 import { DateToday } from "../../../../../function/DateToday";
 import { Pembilang } from "../../../../../function/Terbilang";
+import { ToRupiah } from "../../../../../function/ToRupiah";
 
 export const useValueForm = (axiosJWT, configAxios) => {
   const { dateToday } = DateToday();
@@ -14,6 +15,7 @@ export const useValueForm = (axiosJWT, configAxios) => {
   const [norek, setNorek] = useState("");
   const [teller, setTeller] = useState();
   const [jumlahUang, setJumlahUang] = useState("");
+  const [jmlUang, setJmlUang] = useState("");
   const [tglTransaksi, setTglTransaksi] = useState(dateToday);
 
   useEffect(() => {
@@ -24,7 +26,21 @@ export const useValueForm = (axiosJWT, configAxios) => {
     setTeller(currentTeller);
   }, [currentTeller]);
 
+  useEffect(() => {
+    if (jumlahUang && typeof jumlahUang !== "number") {
+      let splitJumlahUang = jumlahUang;
+      splitJumlahUang = splitJumlahUang.replace(/\D+/g, "");
+      splitJumlahUang = parseInt(splitJumlahUang);
+
+      setJumlahUang(splitJumlahUang);
+    }
+  }, [jumlahUang]);
+
+  const { formatRupiah, rupiah } = ToRupiah();
+
   return {
+    rupiah,
+    formatRupiah,
     idTransaksi,
     setIdTransaksi,
     norek,
@@ -34,6 +50,8 @@ export const useValueForm = (axiosJWT, configAxios) => {
     jumlahUang,
     setJumlahUang,
     tglTransaksi,
+    jmlUang,
+    setJmlUang,
   };
 };
 

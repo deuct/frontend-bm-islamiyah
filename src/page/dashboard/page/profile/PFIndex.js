@@ -5,6 +5,7 @@ import "./style/PFIndex.css";
 import { Link } from "react-router-dom";
 import configAxios from "../../../../config/ConfigAxios";
 import { usePFIndex } from "./function/usePFIndex";
+import FormModal from "../../../../component/FormModal";
 
 function PFIndex(props) {
   const breadCrumbData = ["Profile", "My Profile"];
@@ -22,12 +23,14 @@ function PFIndex(props) {
     handleImageChange,
     changePassword,
     submitProfile,
+    isSuccess,
   } = usePFIndex(configAxios, name);
 
   console.log(baseURL + photoPath);
 
   return (
     <>
+      <FormModal isSuccess={isSuccess} />
       <CMPBreadCrumb breadCrumbData={breadCrumbData} />
       <Row className="justify-content-center mt-2">
         <Col xs={12} md={6} lg={6}>
@@ -94,6 +97,7 @@ function PFIndex(props) {
                     size="sm"
                     value={profileName}
                     onChange={(e) => setProfileName(e.target.value)}
+                    readOnly
                   />
                 </Col>
               </Row>

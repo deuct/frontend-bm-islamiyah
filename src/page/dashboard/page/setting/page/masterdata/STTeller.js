@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Row, Col, Table, Button, Form } from "react-bootstrap";
 import {
   BsPencilSquare,
@@ -117,7 +117,7 @@ function STTeller(props) {
                           {teller.username}
                         </Button>
                       </td>
-                      <td>{teller.full_name}</td>
+                      <td>{teller.nama_lengkap}</td>
                       <td>{teller.nuptk}</td>
                       <td>
                         <Button

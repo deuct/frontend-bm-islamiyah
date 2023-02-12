@@ -24,16 +24,48 @@ function ViewRekapEndOfDay(props) {
           {reportData.map((data, index) => {
             totalDebet += data.debet;
             totalKredit += data.kredit;
+
+            let kreditConvert;
+            if (data.kredit !== null) {
+              kreditConvert = data.kredit.toString();
+              kreditConvert = kreditConvert.replace(/[^\w\s]/gi, "");
+              kreditConvert = parseInt(kreditConvert);
+              kreditConvert = kreditConvert
+                .toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })
+                .slice(0, -3);
+            }
             return (
               <>
-                <tr key={data.id_transaksi}>
+                <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{data.id_transaksi}</td>
                   <td>{data.Tanggal}</td>
                   <td>{data.Keterangan}</td>
-                  <td>{data.debet}</td>
-                  <td>{data.kredit}</td>
-                  <td>{(totalVal += data.debet + data.kredit)}</td>
+                  <td>
+                    {data.debet !== null
+                      ? data.debet
+                          .toLocaleString("id-ID", {
+                            style: "currency",
+                            currency: "IDR",
+                          })
+                          .slice(0, -3)
+                      : "-"}
+                  </td>
+                  <td>{data.kredit !== null ? kreditConvert : "-"}</td>
+                  <td style={{ display: "none" }}>
+                    {(totalVal += data.debet + data.kredit)}
+                  </td>
+                  <td>
+                    {totalVal
+                      .toLocaleString("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                      })
+                      .slice(0, -3)}
+                  </td>
                 </tr>
               </>
             );
@@ -42,9 +74,30 @@ function ViewRekapEndOfDay(props) {
             <td colSpan={4} className="text-right">
               Grand Total
             </td>
-            <td>{totalDebet}</td>
-            <td>{totalKredit}</td>
-            <td>{totalVal}</td>
+            <td>
+              {totalDebet
+                .toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })
+                .slice(0, -3)}
+            </td>
+            <td>
+              {totalKredit
+                .toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })
+                .slice(0, -3)}
+            </td>
+            <td>
+              {totalVal
+                .toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })
+                .slice(0, -3)}
+            </td>
           </tr>
         </tbody>
       </table>

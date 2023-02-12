@@ -23,6 +23,7 @@ import STChangePWDUser from "../setting/STChangePWDUser";
 import HMWebUser from "../home/HMWebUser";
 import NBMyBalance from "../nasabah/NBMyBalance";
 import PrivateNasabah from "../../../../private_routes/PrivateNasabah";
+import CMPLoading from "../../component/CMPLoading";
 
 function DashboardRoutes(props) {
   // const axiosInstance = props.axiosInstance;
@@ -290,7 +291,7 @@ function DashboardRoutes(props) {
           <CMPFooter />
         </>
       ) : (
-        "loading..."
+        <CMPLoading />
       )}
     </>
   );
