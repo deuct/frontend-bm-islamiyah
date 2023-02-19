@@ -22,7 +22,7 @@ export const useBukuTabungan = (dataNasabah, startDate, endDate, noBaris) => {
   const baseURL = process.env.REACT_APP_BASE_URL;
 
   const printBukuTabungan = () => {
-    console.log(startDate);
+    const baseURL = process.env.REACT_APP_BASE_URL;
 
     const valueForm = {
       startDate: startDate,
