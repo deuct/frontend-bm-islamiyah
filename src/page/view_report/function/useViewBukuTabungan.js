@@ -14,6 +14,8 @@ export const useViewBukuTabungan = (configAxios) => {
   const { axiosJWT } = useAxiosJWT();
 
   const generatePDF = () => {
+    updateLastPrinted();
+
     const report = new JsPDF("potrait", "pt", "a5");
 
     report.html(document.querySelector("#tabungan-contents")).then(() => {
@@ -47,7 +49,30 @@ export const useViewBukuTabungan = (configAxios) => {
 
     if (response) {
       setTabunganData(response.data);
-      console.log(response.data);
+    }
+  };
+
+  const updateLastPrinted = async () => {
+    try {
+      if (tabunganData.length > 0) {
+        const lastPrintedDate =
+          tabunganData[tabunganData.length - 1].tgl_transaksi;
+
+        const response = await axiosJWT.post(
+          `/nasabah/printdate/update`,
+          {
+            last_printdate: lastPrintedDate,
+            norek: norek,
+          },
+          configAxios
+        );
+
+        if (response) {
+          console.log("success");
+        }
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

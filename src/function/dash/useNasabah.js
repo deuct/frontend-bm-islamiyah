@@ -44,7 +44,57 @@ export const useGetNasabahById = (axiosJWT, configAxios, noRekening) => {
     }
   };
 
-  console.log(dataNasabah);
-
   return { dataNasabah };
+};
+
+export const useCountUnprinted = (
+  axiosJWT,
+  configAxios,
+  noRekening,
+  endDate
+) => {
+  const [totalUnprinted, setTotalUnprinted] = useState([]);
+  const [unprinted, setUnprinted] = useState([]);
+  const [lastPrintDate, setLastPrintDate] = useState([]);
+  const [startPrintDate, setStartPrintDate] = useState([]);
+  const [lastTransaksi, setLastTransaksi] = useState([]);
+
+  const valueForm = {
+    end_date: endDate,
+    norek: noRekening,
+  };
+
+  console.log(valueForm);
+
+  useEffect(() => {
+    getCountUnpr();
+  }, [endDate, noRekening]);
+
+  const getCountUnpr = async () => {
+    try {
+      const response = await axiosJWT.post(
+        `/nasabah/printdate/unprinted-count`,
+        valueForm,
+        configAxios
+      );
+
+      if (response) {
+        setTotalUnprinted(response.data.printedTotal);
+        setUnprinted(response.data.printedRange);
+        setLastPrintDate(response.data.lastPrintDate);
+        setStartPrintDate(response.data.startPrintDate);
+        setLastTransaksi(response.data.lastTransaksi);
+      }
+    } catch (error) {
+      console.log("error");
+    }
+  };
+
+  return {
+    totalUnprinted,
+    unprinted,
+    lastPrintDate,
+    startPrintDate,
+    lastTransaksi,
+  };
 };

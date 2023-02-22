@@ -15,9 +15,6 @@ import NFPageNotFound from "./page/dashboard/page/notfound/NFPageNotFound";
 
 function App() {
   const { userRole } = useAuthContext();
-
-  console.log("test user role : ", userRole);
-
   return (
     <BrowserRouter>
       <Routes>

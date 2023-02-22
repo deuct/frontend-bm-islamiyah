@@ -109,9 +109,13 @@ export const useNBFormAdd = (
 
       for (let i in valueForm) {
         if (valueForm[i].length === 0) {
-          setMsg(i + " is empty");
-          counter = 1;
-          return;
+          if (i === "wbUserName" && valueForm[i].length === 0) {
+            counter = 0;
+          } else {
+            setMsg(i + " is empty");
+            counter = 1;
+            return;
+          }
         }
       }
 

@@ -4,17 +4,19 @@ import { useViewBukuTabungan } from "./function/useViewBukuTabungan";
 import "./style/ViewBukuTabungan.css";
 
 function ViewBukuTabungan(props) {
-  const axiosInstance = props.axiosInstance;
-  const configAxios = props.configAxios;
-
   const { params, generatePDF, tabunganData } = useViewBukuTabungan();
 
   const name = params.get("namaNasabah");
   const kelas = params.get("kelas");
   const jurusan = params.get("jurusan");
+  const isNewPage = params.get("isNewPage");
+  let nomorBaris = parseInt(params.get("nomorBaris"));
 
-  console.log(tabunganData);
+  // if (nomorBaris !== 1) {
+  //   nomorBaris -= 1;
+  // }
 
+  console.log(nomorBaris);
   return (
     <>
       <div className="text-center">
@@ -53,7 +55,7 @@ function ViewBukuTabungan(props) {
           <table id="tabungan-header">
             <tbody>
               <tr className="text-center">
-                <td rowSpan={2} style={{ width: "94.5px" }}>
+                <td rowSpan={2} style={{ width: "112px" }}>
                   Tanggal
                 </td>
                 <td colSpan={2} style={{ width: "151.2px" }}>
@@ -74,12 +76,36 @@ function ViewBukuTabungan(props) {
           </table>
 
           <table id="tabungan-contents">
-            <tbody>
+            <tbody
+              style={
+                nomorBaris == 1
+                  ? {
+                      marginTop: isNewPage === "checked" ? "28px" : "66px",
+                      display: "block",
+                      marginLeft: "35px",
+                    }
+                  : {
+                      marginTop:
+                        isNewPage === "checked"
+                          ? 20 + nomorBaris * 16 + "px"
+                          : 50 + nomorBaris * 16 + "px",
+                      display: "block",
+                      marginLeft: "35px",
+                    }
+              }
+            >
               {tabunganData
-                ? tabunganData.map((tb) => (
-                    <tr>
-                      <td style={{ width: "75.6px" }}>{tb.tgl_transaksi}</td>
-                      <td style={{ width: "75.6px" }}>
+                ? tabunganData.map((tb, index) => (
+                    <tr
+                      style={{
+                        display: "block",
+                        marginBottom: "6px",
+                        fontSize: "8px",
+                      }}
+                      key={index}
+                    >
+                      <td style={{ width: "	65px" }}>{tb.tgl_transaksi}</td>
+                      <td style={{ width: "70px" }}>
                         {tb.debet !== 0
                           ? tb.debet
                               .toLocaleString("id-ID", {
@@ -89,7 +115,7 @@ function ViewBukuTabungan(props) {
                               .slice(0, -3)
                           : "-"}
                       </td>
-                      <td style={{ width: "75.6px" }}>
+                      <td style={{ width: "70px" }}>
                         {tb.kredit !== 0
                           ? tb.kredit
                               .toLocaleString("id-ID", {
@@ -99,7 +125,7 @@ function ViewBukuTabungan(props) {
                               .slice(0, -3)
                           : "-"}
                       </td>
-                      <td style={{ width: "75.6px" }}>
+                      <td style={{ width: "70px" }}>
                         {tb.saldo
                           .toLocaleString("id-ID", {
                             style: "currency",
@@ -107,6 +133,7 @@ function ViewBukuTabungan(props) {
                           })
                           .slice(0, -3)}
                       </td>
+                      <td style={{ width: "75.6px" }}></td>
                     </tr>
                   ))
                 : "Loading..."}

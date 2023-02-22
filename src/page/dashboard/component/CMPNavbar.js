@@ -8,6 +8,7 @@ import {
   NavDropdown,
   Dropdown,
   InputGroup,
+  Modal,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
@@ -25,6 +26,7 @@ import {
 import "./style/CMPNavbar.css";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../../helper/context/useAuthContext";
+import ModalExit from "../../../component/ModalExit";
 
 var searchMenu = require("../../../helper/search-menu.json");
 var listMenu = require("../../../helper/list-menu.json");
@@ -123,8 +125,14 @@ function CMPNavbar(props) {
     }
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
+      <ModalExit Logout={props.Logout} show={show} handleClose={handleClose} />
       <Navbar variant="light" id="first-navbar">
         <Container className="container-top">
           <Navbar.Brand href="#home" className="d-flex">
@@ -229,7 +237,7 @@ function CMPNavbar(props) {
                 <Dropdown.Item
                   className="profiledropdown-item"
                   href="#"
-                  onClick={props.Logout}
+                  onClick={handleShow}
                 >
                   <BsArrowLeftSquareFill /> Logout
                 </Dropdown.Item>

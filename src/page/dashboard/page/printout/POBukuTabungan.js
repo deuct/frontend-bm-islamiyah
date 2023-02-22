@@ -3,7 +3,10 @@ import { Col, Row, Form, Button } from "react-bootstrap";
 import CMPBreadCrumb from "../../component/CMPBreadCrumb";
 import { DateToday } from "../../../../function/DateToday";
 import { useBukuTabungan, useValueForm } from "./function/useBukuTabungan";
-import { useGetNasabahById } from "../../../../function/dash/useNasabah";
+import {
+  useCountUnprinted,
+  useGetNasabahById,
+} from "../../../../function/dash/useNasabah";
 
 function POBukuTabungan(props) {
   const axiosJWT = props.axiosJWT;
@@ -20,18 +23,28 @@ function POBukuTabungan(props) {
     setEndDate,
     noBaris,
     setNoBaris,
+    isNewPage,
+    setIsNewPage,
   } = useValueForm(axiosJWT, configAxios);
 
   const { dataNasabah } = useGetNasabahById(axiosJWT, configAxios, norek);
+  const {
+    totalUnprinted,
+    unprinted,
+    lastPrintDate,
+    startPrintDate,
+    lastTransaksi,
+  } = useCountUnprinted(axiosJWT, configAxios, norek, endDate);
 
   const { printBukuTabungan } = useBukuTabungan(
     dataNasabah,
-    startDate,
+    startPrintDate,
     endDate,
-    noBaris
+    noBaris,
+    isNewPage,
+    unprinted
   );
 
-  // console.log(dataNasabah);
   return (
     <>
       <CMPBreadCrumb breadCrumbData={breadCrumbData} />
@@ -56,7 +69,8 @@ function POBukuTabungan(props) {
                         <Col xs={6} md={6} lg={6} className="d-flex">
                           <Form.Control
                             type="date"
-                            onChange={(e) => setStartDate(e.target.value)}
+                            defaultValue={startPrintDate}
+                            readOnly
                           />
                           <span
                             style={{
@@ -99,7 +113,21 @@ function POBukuTabungan(props) {
                             type="text"
                             onChange={(e) => setNoBaris(e.target.value)}
                             placeholder=""
-                            readOnly
+                          />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                      <Row className="justify-content-center">
+                        <Col xs={3} md={3} lg={3}>
+                          <Form.Label>isNewPage</Form.Label>
+                        </Col>
+                        <Col xs={6} md={6} lg={6}>
+                          <Form.Check
+                            type="checkbox"
+                            style={{ marginLeft: "25px" }}
+                            onChange={() => setIsNewPage((prev) => !prev)}
+                            placeholder=""
                           />
                         </Col>
                       </Row>
@@ -163,7 +191,22 @@ function POBukuTabungan(props) {
                         <Col xs={6} md={6} lg={6}>
                           <Form.Control
                             type="text"
-                            defaultValue={""}
+                            defaultValue={lastPrintDate}
+                            placeholder=""
+                            readOnly
+                          />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                      <Row className="justify-content-center">
+                        <Col xs={3} md={3} lg={3}>
+                          <Form.Label>Last Transaksi Date</Form.Label>
+                        </Col>
+                        <Col xs={6} md={6} lg={6}>
+                          <Form.Control
+                            type="text"
+                            defaultValue={lastTransaksi}
                             placeholder=""
                             readOnly
                           />
@@ -178,7 +221,22 @@ function POBukuTabungan(props) {
                         <Col xs={6} md={6} lg={6}>
                           <Form.Control
                             type="text"
-                            defaultValue={""}
+                            defaultValue={unprinted}
+                            placeholder=""
+                            readOnly
+                          />
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                      <Row className="justify-content-center">
+                        <Col xs={3} md={3} lg={3}>
+                          <Form.Label>Total Transaksi Belum Dicetak</Form.Label>
+                        </Col>
+                        <Col xs={6} md={6} lg={6}>
+                          <Form.Control
+                            type="text"
+                            defaultValue={totalUnprinted}
                             placeholder=""
                             readOnly
                           />
