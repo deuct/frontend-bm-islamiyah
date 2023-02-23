@@ -32,6 +32,12 @@ export const useBukuTabungan = (
   const printBukuTabungan = () => {
     const baseURL = process.env.REACT_APP_BASE_URL;
 
+    if (isNewPage) {
+      isNewPage = "checked";
+    } else {
+      isNewPage = "unchecked";
+    }
+
     const valueForm = {
       startDate: startDate,
       endDate: endDate,
@@ -43,12 +49,6 @@ export const useBukuTabungan = (
       isNewPage: isNewPage,
       reportType: "Buku Tabungan",
     };
-
-    if (isNewPage) {
-      isNewPage = "checked";
-    } else {
-      isNewPage = "unchecked";
-    }
 
     if (noBaris > 12) {
       alert("Nomor Baris Must be less than 12");
@@ -87,6 +87,9 @@ export const useBukuTabungan = (
       return;
     } else if (noBaris == 11 && unprinted > 2) {
       alert("Transaksi Belum Dicetak Must be less than 2");
+      return;
+    } else if (unprinted == 0) {
+      alert("No data to be printed!");
       return;
     } else {
       let reportWindow = window.open(
